@@ -5,7 +5,7 @@ import DataSource from '@src/modules/database/config/typeorm.config';
 import request from 'supertest';
 import { cleanApp } from '@test/utils/fixture/shared/app/clean-app';
 
-describe('Update order status to paid', () => {
+describe('Update order status to cancel', () => {
     let app: NestExpressApplication;
     let connection: typeof DataSource;
 
@@ -15,7 +15,7 @@ describe('Update order status to paid', () => {
     });
 
     it('should return 404 if request is not a patch', async () => {
-        const getOrderResponse = await request(app.getHttpServer()).get('/api/orders/02456b52-dddc-4e07-ad7a-67900368fcc3/pay');
+        const getOrderResponse = await request(app.getHttpServer()).get('/api/orders/02456b52-dddc-4e07-ad7a-67900368fcc3/cancel');
 
         expect(getOrderResponse.status).toBe(404);
     });

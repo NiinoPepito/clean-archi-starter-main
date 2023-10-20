@@ -16,7 +16,7 @@ describe('Get All Orders', () => {
 
   it('should return all orders', async () => {
     const getAllOrdersResponse = await request(app.getHttpServer()).get(
-      `/api/orders/all`,
+      `/api/orders/`,
     );
 
     expect(getAllOrdersResponse.status).toBe(200);

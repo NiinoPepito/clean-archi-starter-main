@@ -10,7 +10,6 @@ export default class CreateOrderService {
 
     async createOrder(createOrderDto: CreateOrderDtoInterface): Promise<Order> {
 
-        console.log(createOrderDto)
        const orderToCreate = {
            ...createOrderDto,
             status: 'InCart'

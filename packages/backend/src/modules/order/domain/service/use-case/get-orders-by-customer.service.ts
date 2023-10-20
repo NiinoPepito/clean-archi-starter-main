@@ -11,9 +11,7 @@ export class GetOrdersByCustomerService {
   async getOrdersByCustomer(customerName): Promise<Order[]> {
     const orders = await this.orderRepository.findOrdersByCustomer(customerName);
     const nombreDeCaractere = 5;
-    console.log(customerName);
     if (customerName.length < nombreDeCaractere) {
-      console.log(customerName);
       throw new Exception(ExceptionTypeEnum.BadRequest, `Le nombre de caractères du nom du Client "${customerName}" est inférieur à ${nombreDeCaractere} caractères`);
     }
     if (customerName.match(/\d+/g)) {

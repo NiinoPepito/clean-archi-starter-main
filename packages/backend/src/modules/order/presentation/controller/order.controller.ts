@@ -23,7 +23,7 @@ export default class OrderController {
       private readonly createOrderService: CreateOrderService,
   ){}
 
-  @Get('/all')
+  @Get('/')
   async getOrders(): Promise<Order[]> {
       return await this.getAllOrdersService.getAllOrders();
   }
@@ -58,7 +58,7 @@ export default class OrderController {
       await this.deleteOrderService.deleteOrder(id);
   }
 
-  @Post('/create')
+  @Post('/')
   async createOrder(@Body() createOrderDto: CreateOrderDto) {
     await this.createOrderService.createOrder(createOrderDto);
 }
