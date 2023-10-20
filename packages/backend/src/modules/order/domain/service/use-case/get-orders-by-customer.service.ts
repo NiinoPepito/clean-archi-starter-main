@@ -14,9 +14,13 @@ export class GetOrdersByCustomerService {
     if (customerName.length < nombreDeCaractere) {
       throw new Exception(ExceptionTypeEnum.BadRequest, `Le nombre de caractères du nom du Client "${customerName}" est inférieur à ${nombreDeCaractere} caractères`);
     }
+    this.checkIfNumberInString;
+    return orders;
+  }
+
+  private checkIfNumberInString(customerName: string) {
     if (customerName.match(/\d+/g)) {
       throw new Exception(ExceptionTypeEnum.BadRequest, `Le nom du Client ${customerName} contient des chiffres`);
     }
-    return orders;
   }
 }
